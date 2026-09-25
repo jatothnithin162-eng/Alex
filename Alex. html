@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My AI Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AI Assistant</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#tasks">Tasks</a></li>
+        <li class="nav-item"><a class="nav-link" href="#calendar">Calendar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#notes">Notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <section id="dashboard" class="container mt-5">
+    <h2>Dashboard</h2>
+    <p>Overview of tasks, schedules, and notes.</p>
+  </section>
+
+  <!-- Tasks -->
+  <section id="tasks" class="container mt-5">
+    <h2>Task Manager</h2>
+    <form>
+      <div class="mb-3">
+        <label for="task" class="form-label">New Task</label>
+        <input type="text" class="form-control" id="task" placeholder="Enter your task">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+  </section>
+
+  <!-- Calendar -->
+  <section id="calendar" class="container mt-5">
+    <h2>Calendar</h2>
+    <p>Upcoming events and schedules.</p>
+  </section>
+
+  <!-- Notes -->
+  <section id="notes" class="container mt-5">
+    <h2>Notes</h2>
+    <textarea class="form-control" rows="4" placeholder="Write your notes here..."></textarea>
+  </section>
+
+  <!-- Voice Command Button -->
+  <div class="container mt-5 text-center">
+    <button onclick="startVoiceCommand()" class="btn btn-success">🎤 Start Voice Command</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-3 mt-5">
+    <p>&copy; 2026 My AI Assistant</p>
+  </footer>
+
+  <!-- Voice Command Script -->
+  <script>
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+
+    recognition.onstart = function() {
+      console.log("Voice recognition started. Speak now...");
+    };
+
+    recognition.onresult = function(event) {
+      var transcript = event.results[0][0].transcript.toLowerCase();
+      console.log("You said: " + transcript);
+
+      // Command mapping
+      if(transcript.includes("add task")) {
+        if (transcript.includes("add task")) {
+  let taskName = transcript.replace("add task", 
+
+if (transcript.includes("show notes")) {
+  document.getElementById("notes").scrollIntoView();
+}
+
+        document.getElementById("tasks").scrollIntoView();
+      }
+      else if(transcript.includes("open calendar")) {
+        alert("Opening Calendar...");
+        document.getElementById("calendar").scrollIntoView();
+      }
+      else if(transcript.includes("show notes")) {
+        alert("Opening Notes...");
+        document.getElementById("notes").scrollIntoView();
+      }
+      else {
+        alert("Command not recognized. Try again!");
+      }
+    };
+
+    function startVoiceCommand() {
+      recognition.start();
+    }
+  </script>
+</body>
+</html>
